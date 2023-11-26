@@ -16,9 +16,10 @@ const BottomTabs = () => {
     <Tab.Navigator
       initialRouteName="Hook"
       tabBarOptions={{
-        tabStyle: {backgroundColor: 'green'},
+        tabStyle: {backgroundColor: 'green',fontWeight:"bold"},
         activeTintColor: 'white',
         inactiveTintColor: 'black',
+        labelStyle: {fontSize: 18,fontWeight:"bold"},
       }}>
       <Tab.Screen
         name="Hook"
@@ -26,6 +27,7 @@ const BottomTabs = () => {
         options={{
           tabBarLabel: 'Hookscreen',
           headerShown: false,
+          tabBarIcon: () => null,
         }}
       />
 
@@ -36,6 +38,7 @@ const BottomTabs = () => {
           tabBarLabel: 'Mobx',
           headerStyle: {backgroundColor: 'green'},
           headerShown: false,
+          tabBarIcon: () => null,
         }}
       />
     </Tab.Navigator>
