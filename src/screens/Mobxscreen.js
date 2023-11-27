@@ -60,13 +60,6 @@ const toggleSwitch = () => {
     await saveToLocalStorage();
   };
 
-
-  console.log('mobx implemention unit', unit);
-  console.log('mobx implemention  lbs', lbs);
-  console.log('mobx implemention inches', inches);
-  console.log('mobx implemention ft', ft);
-  console.log('mobx implemention  kg', kg);
-  console.log('mobx implemention meters', meters);
   return (
     <View style={styles.hookwrapper}>
       <Text style={{textAlign: 'center', marginBottom: 4}}>

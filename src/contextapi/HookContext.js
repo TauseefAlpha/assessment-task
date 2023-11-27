@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 
 const HooksContext = createContext();
 
@@ -26,8 +26,6 @@ export const HooksProvider = ({children}) => {
     }
   }, [lbs, ft, inches, unit]);
 
-
-
   useEffect(() => {
     // Read data from AsyncStorage when component mounts
     const fetchData = async () => {
@@ -44,7 +42,7 @@ export const HooksProvider = ({children}) => {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   const saveToLocalStorage = async () => {
     try {
@@ -89,7 +87,6 @@ export const HooksProvider = ({children}) => {
     resetLocalStorage();
   };
 
-
   return (
     <HooksContext.Provider
       value={{
@@ -100,12 +97,14 @@ export const HooksProvider = ({children}) => {
         inches,
         setInches,
         kg,
+        setKg,
         meters,
+        setMeters,
         unit,
         setUnit,
         resetFields,
         readFromLocalStorage,
-        saveToLocalStorage
+        saveToLocalStorage,
       }}>
       {children}
     </HooksContext.Provider>

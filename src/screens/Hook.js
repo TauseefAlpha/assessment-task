@@ -14,7 +14,7 @@ import {useHooksContext} from '../contextapi/HookContext';
 const Hook = () => {
   const [weight, setWeight] = useState();
   const [isSwitchOn, setIsSwitchOn] = useState(false);
-  const [swtvalue, setSwtValue] = useState('Metric');
+  const [swtvalue, setSwtValue] = useState('Imperial');
   const {
     lbs,
     setLbs,
@@ -41,19 +41,7 @@ const Hook = () => {
     }
   };
 
-  console.log('swtvalue', swtvalue);
-  console.log('setUnitvalue', swtvalue);
-  console.log('swtvalue isSwitchOn', isSwitchOn);
-  console.log('swtvalue  lbs;', lbs);
-  console.log('swtvalue  ft;', ft);
-  console.log('swtvalue  inches;', inches);
-  console.log('swtvalue kg;', kg);
-  console.log('swtvalue meters;', meters);
 
-  // useEffect(() => {
-  //   const data = readFromLocalStorage();
-  //   console.log('data from local storage', data);
-  // }, []);
   return (
     <View style={styles.hookwrapper}>
       <Text style={{textAlign: 'center', marginBottom: 4}}>
@@ -122,7 +110,12 @@ const Hook = () => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <C_TextInput placeholder={'m'} title={'m'} value={meters} />
+          <C_TextInput
+            placeholder={'m'}
+            title={'m'}
+            value={meters}
+            onChangeText={text => setInches(text)}
+          />
         </View>
       )}
 
@@ -130,7 +123,10 @@ const Hook = () => {
         style={{flexDirection: 'row', justifyContent: 'center', marginTop: 12}}>
         <TouchableOpacity onPress={toggleSwitch} style={styles.switchContainer}>
           <Text
-            style={isSwitchOn ? styles.selectedText : styles.unselectedText}>
+            style={ unit == 'Imperial'
+                ? styles.selectedText
+                : styles.unselectedText
+            }>
             Impertial
           </Text>
           <Switch
@@ -139,7 +135,10 @@ const Hook = () => {
             style={styles.switch}
           />
           <Text
-            style={isSwitchOn ? styles.unselectedText : styles.selectedText}>
+            style={ unit == 'Metric'
+                ? styles.selectedText
+                : styles.unselectedText
+            }>
             Metric
           </Text>
         </TouchableOpacity>
